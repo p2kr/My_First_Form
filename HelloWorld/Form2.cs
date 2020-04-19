@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace HelloWorld
 {
@@ -17,21 +18,6 @@ namespace HelloWorld
             InitializeComponent();
         }
 
-        private void Form2_KeyDown(object sender, KeyPressEventArgs e)
-        {
-            switch ((int)e.KeyChar)
-            {
-                case 27:
-                    CloseButton_Click(sender, e);
-                    break;
-                case 10:
-                    ShowButton_Click(sender, e);
-                    break;
-                default:
-                    break;
-            }
-        }
-
         private void ShowButton_Click(object sender, EventArgs e)
         {
             // Show the Open File dialog. If the user clicks OK, load the
@@ -40,12 +26,14 @@ namespace HelloWorld
             {
                 pictureBox.Load(openFileDialog1.FileName);
             }
+            Debug.WriteLine("ShowButton clicked");
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
             // Clear the picture
             pictureBox.Image = null;
+            Debug.WriteLine("ClearButton clicked");
         }
 
         private void BackgroundButton_Click(object sender, EventArgs e)
@@ -55,14 +43,15 @@ namespace HelloWorld
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 pictureBox.BackColor = colorDialog1.Color;
-
             }
+            Debug.WriteLine("BackgroundButton clicked");
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
             //Exits the application
             this.Close();//Application.Exit();
+            Debug.WriteLine("CloseButton clicked");
         }
 
         private void CheckBox_CheckedChanged(object sender, EventArgs e)
@@ -78,6 +67,24 @@ namespace HelloWorld
             else
             {
                 pictureBox.SizeMode = PictureBoxSizeMode.Normal;
+            }
+            Debug.WriteLine("CheckBox clicked");
+        }
+
+        private void Form2_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    Debug.WriteLine("Escape key pressed");
+                    CloseButton_Click(sender, e);
+                    break;
+                case Keys.Enter:
+                    Debug.WriteLine("Enter key pressed");
+                    ShowButton_Click(sender, e);
+                    break;
+                default:
+                    break;
             }
         }
     }
