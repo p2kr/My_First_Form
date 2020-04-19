@@ -17,11 +17,12 @@ namespace HelloWorld
             InitializeComponent();
         }
 
+        
         private void ShowButton_Click(object sender, EventArgs e)
         {
             // Show the Open File dialog. If the user clicks OK, load the
             // picture that the user chose.
-            if (openFileDialog1.ShowDialog()==DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 pictureBox.Load(openFileDialog1.FileName);
             }
@@ -29,23 +30,41 @@ namespace HelloWorld
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            // Sets the image in picture box to null
+            // Clear the picture
             pictureBox.Image = null;
         }
 
         private void BackgroundButton_Click(object sender, EventArgs e)
         {
-            
+            // Show the color dialog box. If the user clicks OK, change the
+            // PictureBox control's background to the color the user chose.
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox.BackColor = colorDialog1.Color;
+                
+            }
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-
+            //Exits the application
+            this.Close();//Application.Exit();
         }
 
         private void CheckBox_CheckedChanged(object sender, EventArgs e)
         {
-
+            // If the user selects the Stretch check box, 
+            // change the PictureBox's
+            // SizeMode property to "Stretch". If the user clears 
+            // the check box, change it to "Normal".
+            if (checkBox.Checked)
+            {
+                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            else
+            {
+                pictureBox.SizeMode = PictureBoxSizeMode.Normal;
+            }
         }
     }
 }
