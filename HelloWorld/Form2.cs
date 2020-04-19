@@ -17,7 +17,21 @@ namespace HelloWorld
             InitializeComponent();
         }
 
-        
+        private void Form2_KeyDown(object sender, KeyPressEventArgs e)
+        {
+            switch ((int)e.KeyChar)
+            {
+                case 27:
+                    CloseButton_Click(sender, e);
+                    break;
+                case 10:
+                    ShowButton_Click(sender, e);
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private void ShowButton_Click(object sender, EventArgs e)
         {
             // Show the Open File dialog. If the user clicks OK, load the
@@ -41,7 +55,7 @@ namespace HelloWorld
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 pictureBox.BackColor = colorDialog1.Color;
-                
+
             }
         }
 
