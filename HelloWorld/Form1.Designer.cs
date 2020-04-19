@@ -40,6 +40,7 @@
             this.btnClickThis.TabIndex = 0;
             this.btnClickThis.Text = "Click This";
             this.btnClickThis.UseVisualStyleBackColor = true;
+            this.btnClickThis.Click += new System.EventHandler(this.btnClickThis_Click);
             // 
             // lblHelloWorld
             // 

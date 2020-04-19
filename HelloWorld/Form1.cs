@@ -18,8 +18,9 @@ namespace HelloWorld
         }
 
         private void btnClickThis_Click(object sender, EventArgs e)
-        {
+        { 
             lblHelloWorld.Text = "Hello World!";
+            MessageBox.Show("Hello World!");
         }
     }
 }
