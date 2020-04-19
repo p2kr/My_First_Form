@@ -36,6 +36,8 @@
             this.clearButton = new System.Windows.Forms.Button();
             this.backgroundButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -79,6 +81,7 @@
             this.checkBox.TabIndex = 1;
             this.checkBox.Text = "Stretch";
             this.checkBox.UseVisualStyleBackColor = true;
+            this.checkBox.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // flowLayoutPanel1
             // 
@@ -102,7 +105,7 @@
             this.showButton.TabIndex = 0;
             this.showButton.Text = "Show a picture";
             this.showButton.UseVisualStyleBackColor = true;
-            this.showButton.Click += new System.EventHandler(this.showButton_Click);
+            this.showButton.Click += new System.EventHandler(this.ShowButton_Click);
             // 
             // clearButton
             // 
@@ -116,7 +119,7 @@
             this.clearButton.TabIndex = 1;
             this.clearButton.Text = "Clear the picture";
             this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // backgroundButton
             // 
@@ -130,7 +133,7 @@
             this.backgroundButton.TabIndex = 2;
             this.backgroundButton.Text = "Set background color";
             this.backgroundButton.UseVisualStyleBackColor = true;
-            this.backgroundButton.Click += new System.EventHandler(this.backgroundButton_Click);
+            this.backgroundButton.Click += new System.EventHandler(this.BackgroundButton_Click);
             // 
             // closeButton
             // 
@@ -144,7 +147,14 @@
             this.closeButton.TabIndex = 3;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "JPEG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|BMP Files (*.bmp)|*.bmp|All file" +
+    "s (*.*)|*.*";
+            this.openFileDialog1.Title = "Select a picture";
             // 
             // Form2
             // 
@@ -173,5 +183,7 @@
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button backgroundButton;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
